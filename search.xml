@@ -2848,15 +2848,15 @@
 <h3 id="部署Hexo到git"><a href="#部署Hexo到git" class="headerlink" title="部署Hexo到git"></a>部署Hexo到git</h3><p>1.在github上创建一个项目</p>
 <p><img src="img1.png" alt="img1.png"></p>
 <p>2.配置hexo主配置文件<code>_config.yml</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在配置文件最后段找到deploy配置段，修改如下</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repo: git@github.com:Masuri-Y/Masuri-Y.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在配置文件最后段找到deploy配置段，修改如下</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repo: git@github.com:duxy6/duxy6.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <p>3.配置git信息</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置Git的user name和email</span></span><br><span class="line">git config --global user.email <span class="string">&quot;438214186@qq.com&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;Masuri-Y&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成密钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;438214186@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将公钥添加到github</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置Git的user name和email</span></span><br><span class="line">git config --global user.email <span class="string">&quot;438214186@qq.com&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;duxy6&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成密钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;438214186@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将公钥添加到github</span></span><br></pre></td></tr></table></figure>
 
 <p>4.将Hexo部署到github</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在hexo根目录下执行以下命令</span></span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
-<p>部署完毕后就可以访问地址为:<a href="https://masuri-y.github.io/">https:\\Masuri-Y.github.io</a></p>
+<p>部署完毕后就可以访问地址为:<a href="https://duxy6.github.io/">https:\\duxy6.github.io</a></p>
 ]]></content>
       <categories>
         <category>hexo</category>
