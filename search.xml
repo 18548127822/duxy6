@@ -16741,4 +16741,174 @@
         <tag>Shell</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SHELL入门</title>
+    <url>/2022/06/10/Shell/SHELL%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="程序编程风格："><a href="#程序编程风格：" class="headerlink" title="程序编程风格："></a>程序编程风格：</h2><blockquote>
+<p>过程式：以指令为中心，数据服务于指令<br>对象式：以数据为中心，指令服务于数据  </p>
+</blockquote>
+<h2 id="程序的执行方式"><a href="#程序的执行方式" class="headerlink" title="程序的执行方式"></a>程序的执行方式</h2><blockquote>
+<p>计算机：运行二进制指令<br>编程语言：人与计算机之间交互的语言<br>低级编程语言<br>机器：二进制的0和1的序列，称为机器指令。与自然语言差异太大，难懂、难写<br>汇编：用一些助记符号替代机器指令，称为汇编语言<br>如：ADD A,B 将寄存器A的数与寄存器B的数相加得到的数放到寄存器A中<br>汇编语言写好的程序需要汇编程序转换成机器指令<br>汇编语言稍微好理解，即机器指令对应的助记符，助记符更接近自然语言  </p>
+</blockquote>
+<h4 id="高级编程语言"><a href="#高级编程语言" class="headerlink" title="高级编程语言"></a>高级编程语言</h4><p>编译：高级语言–&gt;编译器–&gt;机器代码–&gt;执行<br>C，C++<br>解释：高级语言–&gt;执行–&gt;解释器–&gt;机器代码<br>shell，python，php，JavaScript，perl  </p>
+<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><blockquote>
+<p>包含一些命令或声明，并符合一定格式的文本文件  </p>
+</blockquote>
+<h2 id="格式要求"><a href="#格式要求" class="headerlink" title="格式要求"></a>格式要求</h2><blockquote>
+<p>首行声明序列<br>#!&#x2F;bin&#x2F;bash<br>添加注释<br>注释以#开头<br>运行脚本<br>给予脚本执行权限，在命令行指定脚本的绝对或相对路径<br>直接运行解释器，将脚本作为解释器程序的参数运行  </p>
+</blockquote>
+<h2 id="shell脚本的用途有"><a href="#shell脚本的用途有" class="headerlink" title="shell脚本的用途有"></a>shell脚本的用途有</h2><blockquote>
+<blockquote>
+<p>自动化常用命令<br>执行系统管理和故障排除<br>创建简单的应用程序<br>处理文本或文件  </p>
+</blockquote>
+</blockquote>
+<h2 id="脚本调试"><a href="#脚本调试" class="headerlink" title="脚本调试"></a>脚本调试</h2><blockquote>
+<p>检测脚本中的语法错误<br>bash -n path   </p>
+</blockquote>
+<h2 id="调试执行"><a href="#调试执行" class="headerlink" title="调试执行"></a>调试执行</h2><blockquote>
+<p>bash -x path  </p>
+</blockquote>
+<h2 id="Shell中变量命名法则"><a href="#Shell中变量命名法则" class="headerlink" title="Shell中变量命名法则"></a>Shell中变量命名法则</h2><blockquote>
+<p>1、不能使程序中的保留字：例如if, for<br>2、只能使用数字、字母及下划线，且不能以数字开头<br>3、见名知义<br>4、统一命名规则：驼峰命名法  </p>
+</blockquote>
+<h2 id="Shell中命名建议规则"><a href="#Shell中命名建议规则" class="headerlink" title="Shell中命名建议规则"></a>Shell中命名建议规则</h2><blockquote>
+<p>1、变量名大写<br>2、局部变量小写<br>3、函数名小写<br>4、用英文名字，并体现出实际作用  </p>
+</blockquote>
+<h2 id="bash中变量的种类"><a href="#bash中变量的种类" class="headerlink" title="bash中变量的种类"></a>bash中变量的种类</h2><h4 id="根据变量的生效范围等标准划分下面变量类型"><a href="#根据变量的生效范围等标准划分下面变量类型" class="headerlink" title="根据变量的生效范围等标准划分下面变量类型"></a>根据变量的生效范围等标准划分下面变量类型</h4><blockquote>
+<p>局部变量：生效范围为当前shell进程；对当前shell之外的其它shell进程，包括当前shell的子shell进程均无效<br>环境变量：生效范围为当前shell进程及其子进程<br>本地变量：生效范围为当前shell进程中某代码片断，通常指函数<br>位置变量：$1, $2, …来表示，用于让脚本在脚本代码中调用通过命令行传递给它的参数<br>特殊变量：$?, $0, $<em>, $@, $#,$$<br>$0 这个程式的执行名字<br>$n 这个程式的第n个参数值，n&#x3D;1..9，n&#x3D;10…时，用${n}表示<br>$</em>* 传递给脚本的所有参数，全部参数合为一个字符串<br>$# 这个程式的参数个数<br>$$ 这个程式的PID(脚本运行的当前进程ID号)<br>$! 执行上一个背景指令的PID(后台运行的最后一个进程的进程ID号)<br>$? 执行上一个指令的返回值 (显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误)<br>$- 显示shell使用的当前选项，与set命令功能相同<br>$@ 跟$*类似，传递给脚本的所有参数，每个参数为独立字符串  </p>
+</blockquote>
+<h2 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h2><blockquote>
+<p>变量赋值：name&#x3D;‘value’<br>可以使用引用value<br>(1) 可以是直接字串：name&#x3D;“root”<br>(2) 变量引用：name&#x3D;”$USER”<br>(3) 命令引用：name&#x3D;<code>COMMAND</code><br>name&#x3D;$(COMMAND)</p>
+</blockquote>
+<blockquote>
+<p>变量引用：${name} 或者 $name<br>“ “ 弱引用，其中的变量引用会被替换为变量值<br>‘ ‘ 强引用，其中的变量引用不会被替换为变量值，而保持原字符串  </p>
+</blockquote>
+<h4 id="显示已定义的所有变量：set"><a href="#显示已定义的所有变量：set" class="headerlink" title="显示已定义的所有变量：set"></a>显示已定义的所有变量：set</h4><h4 id="删除变量：unset-name"><a href="#删除变量：unset-name" class="headerlink" title="删除变量：unset name"></a>删除变量：unset name</h4><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><h4 id="变量声明、赋值："><a href="#变量声明、赋值：" class="headerlink" title="变量声明、赋值："></a>变量声明、赋值：</h4><blockquote>
+<p>export name&#x3D;VALUE<br>declare -x name&#x3D;VALUE  </p>
+</blockquote>
+<h4 id="变量引用："><a href="#变量引用：" class="headerlink" title="变量引用："></a>变量引用：</h4><blockquote>
+<p>$name, ${name}  </p>
+</blockquote>
+<h4 id="显示所有环境变量："><a href="#显示所有环境变量：" class="headerlink" title="显示所有环境变量："></a>显示所有环境变量：</h4><blockquote>
+<p>env<br>printenv<br>export<br>declare -x </p>
+</blockquote>
+<h4 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h4><blockquote>
+<p>unset name  </p>
+</blockquote>
+<h2 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h2><h3 id="bash中的算术运算-help-let"><a href="#bash中的算术运算-help-let" class="headerlink" title="bash中的算术运算:help let"></a>bash中的算术运算:help let</h3><blockquote>
+<p>+, -, *, &#x2F;, %取模（取余）, **（乘方），乘法符号有些场景中需要转义  </p>
+</blockquote>
+<h3 id="实现算术运算："><a href="#实现算术运算：" class="headerlink" title="实现算术运算："></a>实现算术运算：</h3><blockquote>
+<p>(1) let var&#x3D;算术表达式<br>(2) var&#x3D;$[算术表达式]<br>(3) var&#x3D;$((算术表达式))<br>(4) var&#x3D;$(expr arg1 arg2 arg3 …)<br>(5) declare –i var &#x3D; 数值<br>(6) echo ‘算术表达式’ | bc  </p>
+</blockquote>
+<h3 id="bash有内建的随机数生成器变量：-RANDOM（0-32767）"><a href="#bash有内建的随机数生成器变量：-RANDOM（0-32767）" class="headerlink" title="bash有内建的随机数生成器变量：$RANDOM（0-32767）"></a>bash有内建的随机数生成器变量：$RANDOM（0-32767）</h3><blockquote>
+<p>示例：生成 0 - 49 之间随机数<br>echo $[$RANDOM%50]  </p>
+</blockquote>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><h4 id="增强型赋值："><a href="#增强型赋值：" class="headerlink" title="增强型赋值："></a>增强型赋值：</h4><blockquote>
+<p>+&#x3D;, -&#x3D;, *&#x3D;, &#x2F;&#x3D;, %&#x3D;  </p>
+</blockquote>
+<h4 id="let-varOPERvalue"><a href="#let-varOPERvalue" class="headerlink" title="let varOPERvalue"></a>let varOPERvalue</h4><blockquote>
+<p>例如:let count+&#x3D;3<br>自加3后自赋值<br>自增，自减：<br>let var+&#x3D;1<br>let var++<br>let var-&#x3D;1<br>let var–  </p>
+</blockquote>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><h4 id="非：！"><a href="#非：！" class="headerlink" title="非：！"></a>非：！</h4><blockquote>
+<p>! 1 &#x3D; 0 ! true<br>! 0 &#x3D; 1 ! false  </p>
+</blockquote>
+<h3 id="短路运算"><a href="#短路运算" class="headerlink" title="短路运算"></a>短路运算</h3><h4 id="短路与"><a href="#短路与" class="headerlink" title="短路与"></a>短路与</h4><blockquote>
+<p>第一个为0，结果必定为0<br>第一个为1，第二个必须要参与运算  </p>
+</blockquote>
+<h4 id="短路或"><a href="#短路或" class="headerlink" title="短路或"></a>短路或</h4><blockquote>
+<p>第一个为1，结果必定为1<br>第一个为0，第二个必须要参与运算  </p>
+</blockquote>
+<h4 id="异或："><a href="#异或：" class="headerlink" title="异或：^"></a>异或：^</h4><blockquote>
+<p>异或的两个值，相同为假，不同为真  </p>
+</blockquote>
+<h2 id="条件测试"><a href="#条件测试" class="headerlink" title="条件测试"></a>条件测试</h2><blockquote>
+<p>判断某需求是否满足，需要由测试机制来实现<br>专用的测试表达式需要由测试命令辅助完成测试过程<br>评估布尔声明，以便用在条件性执行中<br>若真，则返回0<br>若假，则返回1  </p>
+</blockquote>
+<h4 id="测试命令"><a href="#测试命令" class="headerlink" title="测试命令"></a>测试命令</h4><blockquote>
+<p>test EXPRESSION<br>[ EXPRESSION ]<br>[[ EXPRESSION ]]<br>注意：EXPRESSION前后必须有空白字符  </p>
+</blockquote>
+<h2 id="bash的数值测试"><a href="#bash的数值测试" class="headerlink" title="bash的数值测试"></a>bash的数值测试</h2><h4 id="v-VAR"><a href="#v-VAR" class="headerlink" title="-v VAR"></a>-v VAR</h4><blockquote>
+<p>变量VAR是否设置  </p>
+</blockquote>
+<h4 id="数值测试"><a href="#数值测试" class="headerlink" title="数值测试"></a>数值测试</h4><blockquote>
+<p>-gt 是否大于<br>-ge 是否大于等于<br>-eq 是否等于<br>-ne 是否不等于<br>-lt 是否小于<br>-le 是否小于等于  </p>
+</blockquote>
+<h2 id="bash的字符串测试"><a href="#bash的字符串测试" class="headerlink" title="bash的字符串测试"></a>bash的字符串测试</h2><h4 id="字符串测试"><a href="#字符串测试" class="headerlink" title="字符串测试"></a>字符串测试</h4><blockquote>
+<p>&#x3D; 是否等于<br>ascii码是否大于ascii码<br>&lt; 是否小于<br>!&#x3D; 是否不等于<br>&#x3D;~ 左侧字符串是否能够被右侧的PATTERN所匹配<br>注意: 此表达式一般用于[[ ]]中；扩展的正则表达式<br>-z “STRING“ 字符串是否为空，空为真，不空为假<br>-n “STRING“ 字符串是否不空，不空为真，空为假  </p>
+</blockquote>
+<h3 id="注意：用于字符串比较时的用到的操作数都应该使用引号"><a href="#注意：用于字符串比较时的用到的操作数都应该使用引号" class="headerlink" title="注意：用于字符串比较时的用到的操作数都应该使用引号"></a>注意：用于字符串比较时的用到的操作数都应该使用引号</h3><h2 id="Bash的文件测试"><a href="#Bash的文件测试" class="headerlink" title="Bash的文件测试"></a>Bash的文件测试</h2><h4 id="存在性测试"><a href="#存在性测试" class="headerlink" title="存在性测试"></a>存在性测试</h4><blockquote>
+<p>-a FILE：同-e<br>-e FILE: 文件存在性测试，存在为真，否则为假  </p>
+</blockquote>
+<h4 id="存在性及类别测试"><a href="#存在性及类别测试" class="headerlink" title="存在性及类别测试"></a>存在性及类别测试</h4><blockquote>
+<p>-b FILE：是否存在且为块设备文件<br>-c FILE：是否存在且为字符设备文件<br>-d FILE：是否存在且为目录文件<br>-f FILE：是否存在且为普通文件<br>-h FILE 或 -L FILE：存在且为符号链接文件<br>-p FILE：是否存在且为命名管道文件<br>-S FILE：是否存在且为套接字文件Bash的文件权限测试  </p>
+</blockquote>
+<h4 id="文件权限测试："><a href="#文件权限测试：" class="headerlink" title="文件权限测试："></a>文件权限测试：</h4><blockquote>
+<p>-r FILE：是否存在且可读<br>-w FILE: 是否存在且可写<br>-x FILE: 是否存在且可执行  </p>
+</blockquote>
+<h4 id="文件特殊权限测试："><a href="#文件特殊权限测试：" class="headerlink" title="文件特殊权限测试："></a>文件特殊权限测试：</h4><blockquote>
+<p>-u FILE：是否存在且拥有suid权限<br>-g FILE：是否存在且拥有sgid权限<br>-k FILE：是否存在且拥有sticky权限  </p>
+</blockquote>
+<h4 id="文件大小测试："><a href="#文件大小测试：" class="headerlink" title="文件大小测试："></a>文件大小测试：</h4><blockquote>
+<p>-s FILE: 是否存在且非空	  </p>
+</blockquote>
+<h2 id="Bash的组合测试条件"><a href="#Bash的组合测试条件" class="headerlink" title="Bash的组合测试条件"></a>Bash的组合测试条件</h2><h4 id="第一种方式："><a href="#第一种方式：" class="headerlink" title="第一种方式："></a>第一种方式：</h4><blockquote>
+<p>EXPRESSION1 -a EXPRESSION2 并且<br>EXPRESSION1 -o EXPRESSION2 或者<br>! EXPRESSION<br>必须使用测试命令进行，[[ ]] 不支持  </p>
+</blockquote>
+<h4 id="第二种方式："><a href="#第二种方式：" class="headerlink" title="第二种方式："></a>第二种方式：</h4><blockquote>
+<p>COMMAND1 &amp;&amp; COMMAND2 并且，短路与，代表条件性的AND THEN<br>COMMAND1 || COMMAND2 或者，短路或，代表条件性的OR ELSE<br>! COMMAND 非<br>如：[ -f “$FILE” ] &amp;&amp; [[ “$FILE”&#x3D;~ .*.sh$ ]]  </p>
+</blockquote>
+<h2 id="使用read命令来接受输入"><a href="#使用read命令来接受输入" class="headerlink" title="使用read命令来接受输入"></a>使用read命令来接受输入</h2><h4 id="使用read来把输入值分配给一个或多个shell变量"><a href="#使用read来把输入值分配给一个或多个shell变量" class="headerlink" title="使用read来把输入值分配给一个或多个shell变量"></a>使用read来把输入值分配给一个或多个shell变量</h4><blockquote>
+<p>-p 指定要显示的提示<br>-s 静默输入，一般用于密码<br>-n N 指定输入的字符长度N<br>-d ‘字符’ 输入结束符<br>-t N TIMEOUT为N秒  </p>
+</blockquote>
+<blockquote>
+<p>read 从标准输入中读取值，给每个单词分配一个变量<br>所有剩余单词都被分配给最后一个变量<br>read -p “Enter a filename: “ FILE  </p>
+</blockquote>
+<h2 id="条件选择if语句"><a href="#条件选择if语句" class="headerlink" title="条件选择if语句"></a>条件选择if语句</h2><blockquote>
+<p>选择执行：<br>注意：if语句可嵌套  </p>
+</blockquote>
+<h4 id="单分支"><a href="#单分支" class="headerlink" title="单分支"></a>单分支</h4><pre><code>    if 判断条件;then  
+        条件为真的分支代码  
+    fi  
+</code></pre>
+<h4 id="双分支"><a href="#双分支" class="headerlink" title="双分支"></a>双分支</h4><pre><code>    if 判断条件; then  
+        条件为真的分支代码  
+    else  
+        条件为假的分支代码  
+    fi  
+</code></pre>
+<h2 id="if-语句多分支"><a href="#if-语句多分支" class="headerlink" title="if 语句多分支"></a>if 语句多分支</h2><pre><code>    if 判断条件1; then  
+        条件1为真的分支代码  
+    elif 判断条件2; then  
+        条件2为真的分支代码  
+    elif 判断条件3; then  
+        条件3为真的分支代码  
+    else  
+        以上条件都为假的分支代码  
+    fi  
+</code></pre>
+<h3 id="逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句"><a href="#逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句" class="headerlink" title="逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句"></a>逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句</h3><h2 id="条件判断：case语句"><a href="#条件判断：case语句" class="headerlink" title="条件判断：case语句"></a>条件判断：case语句</h2><pre><code>    case 变量引用 in  
+    PAT1)  
+        分支1  
+        ;;  
+    PAT2)  
+        分支2  
+        ;;  
+    ...  
+    *)  
+        默认分支  
+        ;;  
+    esac  
+</code></pre>
+<h2 id="case支持glob风格的通配符"><a href="#case支持glob风格的通配符" class="headerlink" title="case支持glob风格的通配符"></a>case支持glob风格的通配符</h2><blockquote>
+<p>*: 任意长度任意字符<br>?: 任意单个字符<br>[]：指定范围内的任意单个字符<br>a|b: a或b  </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
 </search>
